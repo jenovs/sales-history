@@ -1,0 +1,30 @@
+h1,
+h2,
+h3,
+html,
+body,
+div,
+nav,
+p,
+a,
+ul,
+li,
+section,
+footer,
+img,
+button {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100vh;
+}
+
+body {
+  cursor: default;
+  font-family: sans-serif;
+  font-size: 16px;
+}
