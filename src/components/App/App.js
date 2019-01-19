@@ -76,7 +76,10 @@ class App extends Component {
           loading: loading <= 0 ? 0 : loading - 1,
         }));
       })
-      .catch(e => console.log(e));
+      .catch(e => {
+        this.setState({ loading: 0 });
+        console.log(e);
+      });
   };
 
   fetchMore = () => {
