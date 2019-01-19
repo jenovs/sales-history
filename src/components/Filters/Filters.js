@@ -1,9 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
 import Button from '../Button';
 import { Group, H2, Wrapper } from './styled';
 
+// eslint-disable-next-line
 const Filters = ({ filterConfig, filterState, updateFilter }) => {
   const filterGroups = [...new Set(filterConfig.map(f => f.filterGroupLabel))];
 
