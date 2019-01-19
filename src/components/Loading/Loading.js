@@ -1,21 +1,32 @@
+/* eslint-disable react/no-unused-state */
 import React from 'react';
+import PropTypes from 'prop-types';
+
+const drawDots = ({ i }) => ({
+  text: '•'.repeat(i),
+  i: i + 1 > 3 ? 1 : i + 1,
+});
 
 class Loading extends React.Component {
+  static propTypes = {
+    timeout: PropTypes.number,
+  };
+
+  static defaultProps = {
+    timeout: 175,
+  };
+
   state = {
     text: '',
+    i: 1,
   };
 
   componentDidMount() {
-    let i = 0;
+    const { timeout } = this.props;
+
     const token = setInterval(() => {
-      this.setState({
-        text: '•'.repeat(i),
-      });
-      i++;
-      if (i > 3) {
-        i = 0;
-      }
-    }, 175);
+      this.setState(drawDots);
+    }, timeout);
 
     this.setState({ token });
   }
