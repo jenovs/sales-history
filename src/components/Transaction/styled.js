@@ -1,3 +1,5 @@
+/* eslint-disable no-confusing-arrow */
+/* eslint-disable no-nested-ternary */
 import styled from '@emotion/styled';
 
 export const Money = styled.p`
@@ -28,7 +30,6 @@ export const Status = styled.p`
       : '#666'};
   display: flex;
   justify-content: center;
-  font-family: sans-serif;
   font-size: 0.9rem;
   margin: auto 3vw;
   margin-left: 5vw;
@@ -72,7 +73,7 @@ export const Wrapper = styled.div`
   color: #333;
   display: flex;
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: bold;
   justify-content: space-between;
   padding: 0.7rem;
   width: 100%;
