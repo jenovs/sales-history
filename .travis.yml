@@ -1,0 +1,17 @@
+language: node_js
+node_js:
+  - '10'
+notifications:
+  email: false
+before_install:
+  - npm install codecov -g
+after_success:
+  - codecov
+before_deploy: npm run build
+deploy:
+  provider: pages
+  skip_cleanup: true
+  local_dir: build
+  on: master
+  github_token:
+    secure: cEkrdkfFoLga6lcf/leEbF6r9xo6JqLMJDvoy4C2W/UOhDR3S6tyJOBYm//6QKjY3SAFpSYreashY50Sz7fUUqeWEhQeNsoCNAGBSexks28wfUSWGVk4St2rlzYOoU339cLb9q50DMs6/0E63eRqmxQBmvnfpDTg3fO39uKxIgf8z5zP0T/+huB2V5KbpLda67CRyxPh9awSJ1H5WNsmN10b+tj9hk8lbdLGoat1FY21s+nqg8ufuRezVQ25Q1vLIAnrVdulWf8X6WnlANMxN+fDXYKeiaMx6Pxpl7clNTIds5RHpYjQHNm4XqxsU0kGSHQ0DTfLlwVOs+KHYo4nkcnnti046hKl2ZbN9WxYd1SNE5r20UP5zI9dmObCU1MwaOy5/lFVB5+nks+wThhw6Eqdsvpt9czoDpCkxUEp0hZM6uUM/o9oKsATMw1tzy7pQbabBZ6prNw4GtXqZQcORbAHxzoD3NkG8hVzKO1bWtTtwgXLBl2sQCwHIg8MWSz0ooBcGr+gYP/zVLmvo0bf5GP528jbL3pgXzHjtOMqTjXQZKRJKI9JCfiKWls+4InzmFJEa7biN7oilIx8E7DOUpm0I+/t/mwyO2o8/IEqF9gSl1JRpX3iN3DbfEgienJ/qsYS5IaEpCB0/y/Pj37b867BlgMD9M6uTXkJw+QaMvM=
