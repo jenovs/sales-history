@@ -10,9 +10,9 @@ import { Day, Title, TitleText, Transactions, Wrapper } from './styled';
 import { groupByDate } from '../../utils';
 import { BASE_URL, filterConfig } from '../../config';
 
-const calcSum = arr =>
+const calcTotalSales = sales =>
   (
-    arr.reduce((acc, d) => {
+    sales.reduce((acc, d) => {
       if (d.status === 'failed') return acc;
       if (d.status === 'refunded') return acc - d.amount;
       return acc + d.amount;
@@ -113,7 +113,9 @@ class App extends Component {
                       .reverse()
                       .join('/')}
                   </TitleText>
-                  <TitleText>{calcSum(groupedData[date])}&nbsp;€</TitleText>
+                    <TitleText>
+                      {calcTotalSales(groupedData[date])}&nbsp;€
+                    </TitleText>
                 </Title>
                 {groupedData[date].map(d => (
                   <Transaction

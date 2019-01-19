@@ -27,7 +27,6 @@ export const Transactions = styled.div`
 
 export const Wrapper = styled.div`
   cursor: ${p => (p.loading ? 'wait' : 'auto')};
-  font-family: sans-serif;
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-between;
