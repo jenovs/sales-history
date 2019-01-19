@@ -2,14 +2,20 @@ import React from 'react';
 // import PropTypes from 'prop-types';
 
 import Button from '../Button';
-import { Group, H2, Wrapper } from './styled';
+import { Group, H2, Overlay, Wrapper } from './styled';
+import Loading from '../Loading';
 
 // eslint-disable-next-line
-const Filters = ({ filterConfig, filterState, updateFilter }) => {
+const Filters = ({ filterConfig, filterState, updateFilter, loading }) => {
   const filterGroups = [...new Set(filterConfig.map(f => f.filterGroupLabel))];
 
   return (
     <Wrapper>
+      {loading && (
+        <Overlay>
+          <Loading />
+        </Overlay>
+      )}
       {filterGroups.map(group => (
         <Group key={group}>
           <H2>{group}</H2>

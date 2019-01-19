@@ -10,10 +10,28 @@ export const H2 = styled.h2`
   margin-bottom: 0.5rem;
 `;
 
+export const Overlay = styled.div`
+  display: none;
+  position: absolute;
+  z-index: -1;
+  @media (pointer: coarse) {
+    align-items: center;
+    color: #777;
+    display: flex;
+    font-family: 'monospace';
+    font-size: 4rem;
+    font-weight: bold;
+    height: 100%;
+    justify-content: center;
+    width: 100%;
+  }
+`;
+
 export const Wrapper = styled.div`
   padding-left: 3rem;
   padding-top: 3rem;
   max-width: 500px;
+  position: relative;
   width: 100%;
 
   @media (max-width: 900px) {
