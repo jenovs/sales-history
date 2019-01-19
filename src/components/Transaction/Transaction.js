@@ -15,7 +15,7 @@ const propTypes = {
 
 const parseTime = ts => {
   const date = new Date(ts);
-  return [date.getHours(), String(date.getMinutes()).padStart(2, '0')].join(
+  return [date.getUTCHours(), String(date.getMinutes()).padStart(2, '0')].join(
     ':'
   );
 };
