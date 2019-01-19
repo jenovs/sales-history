@@ -22,26 +22,24 @@ const parseTime = ts => {
 
 const toCurrency = num => (num / 100).toFixed(2);
 
-const Transaction = ({ amount, paidBy, status, timestamp }) => {
-  return (
-    <Wrapper>
-      <Time>{parseTime(timestamp)}</Time>
-      <Status status={status}>{status}</Status>
-      <Money status={status}>
-        {status === 'refunded' && '-'}
-        {toCurrency(amount)}
-        <span>&nbsp;€</span>
-      </Money>
-      <Payment>
-        {paidBy === 'card' ? (
-          <Card width="24" height="24" fill="gray" role="img" />
-        ) : (
-          <Cash width="24" height="24" fill="#444" role="img" />
-        )}
-      </Payment>
-    </Wrapper>
-  );
-};
+const Transaction = ({ amount, paidBy, status, timestamp }) => (
+  <Wrapper>
+    <Time>{parseTime(timestamp)}</Time>
+    <Status status={status}>{status}</Status>
+    <Money status={status}>
+      {status === 'refunded' && '-'}
+      {toCurrency(amount)}
+      <span>&nbsp;€</span>
+    </Money>
+    <Payment>
+      {paidBy === 'card' ? (
+        <Card width="24" height="24" fill="gray" role="img" />
+      ) : (
+        <Cash width="24" height="24" fill="#444" role="img" />
+      )}
+    </Payment>
+  </Wrapper>
+);
 
 Transaction.propTypes = propTypes;
 
