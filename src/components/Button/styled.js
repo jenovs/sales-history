@@ -11,6 +11,7 @@ export default styled.button`
   margin: 0.2rem;
   padding: 0.1rem 0.5rem;
   transition: all 0.15s;
+  width: ${p => (p.width ? `${p.width}px` : 'auto')};
 `;
 
 // background-color: ${p =>

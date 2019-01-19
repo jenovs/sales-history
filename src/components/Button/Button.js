@@ -13,8 +13,8 @@ const defaultProps = {
   inactive: false,
 };
 
-const Button = ({ inactive, children, onClick }) => (
-  <Btn type="button" onClick={onClick} inactive={inactive}>
+const Button = ({ inactive, children, onClick, ...props }) => (
+  <Btn type="button" onClick={onClick} inactive={inactive} {...props}>
     {children}
   </Btn>
 );
