@@ -1,0 +1,18 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "serverless-http": "^1.9.0"
+  },
+  "devDependencies": {
+    "serverless": "^1.36.1"
+  },
+  "scripts": {
+    "predeploy": "npm i",
+    "deploy": "NODE_ENV=production serverless deploy",
+    "postdeploy": "rm -rf .serverless/ node_modules/"
+  }
+}
