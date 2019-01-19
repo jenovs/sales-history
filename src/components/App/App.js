@@ -3,6 +3,7 @@ import axios from 'axios';
 
 import Button from '../Button';
 import Filters from '../Filters';
+import Loading from '../Loading';
 import Transaction from '../Transaction';
 
 import { Day, Title, TitleText, Transactions, Wrapper } from './styled';
@@ -27,7 +28,7 @@ class App extends Component {
       filters: {},
     }),
     limit: 20,
-    loading: 0,
+    loading: -1,
   };
 
   componentDidMount() {
@@ -97,6 +98,8 @@ class App extends Component {
     const groupedData = groupByDate(data);
     const dateKeys = Object.keys(groupedData);
 
+    const initLoad = loading === -1;
+
     return (
       <>
         <h1 style={{ textAlign: 'center' }}>Sales History</h1>
@@ -104,37 +107,51 @@ class App extends Component {
           <Filters
             filterConfig={filterConfig}
             filterState={filters}
+            loading={loading > 0}
             updateFilter={this.updateFilter}
           />
-          <Transactions>
-            {dateKeys.map(date => (
-              <Day key={date}>
-                <Title>
-                  <TitleText>
-                    {date
-                      .split('/')
-                      .reverse()
-                      .join('/')}
-                  </TitleText>
+          {/* eslint-disable-next-line no-nested-ternary */}
+          {initLoad ? (
+            <Transactions style={{ fontSize: '5rem', opacity: 0.5 }}>
+              <Loading />
+            </Transactions>
+          ) : !data.length ? (
+            <Transactions style={{ fontSize: '1.5rem' }}>
+              No data match your filter.
+            </Transactions>
+          ) : (
+            <Transactions>
+              {dateKeys.map(date => (
+                <Day key={date}>
+                  <Title>
+                    <TitleText>
+                      {date
+                        .split('/')
+                        .reverse()
+                        .join('/')}
+                    </TitleText>
                     <TitleText>
                       {calcTotalSales(groupedData[date])}&nbsp;€
                     </TitleText>
-                </Title>
-                {groupedData[date].map(d => (
-                  <Transaction
-                    key={d.id}
-                    amount={d.amount}
-                    paidBy={d.paidBy}
-                    status={d.status}
-                    timestamp={d.timestamp}
-                  />
-                ))}
-              </Day>
-            ))}
-            {total > data.length && (
-              <Button onClick={this.fetchMore}>Load More</Button>
-            )}
-          </Transactions>
+                  </Title>
+                  {groupedData[date].map(d => (
+                    <Transaction
+                      key={d.id}
+                      amount={d.amount}
+                      paidBy={d.paidBy}
+                      status={d.status}
+                      timestamp={d.timestamp}
+                    />
+                  ))}
+                </Day>
+              ))}
+              {total > data.length && (
+                <Button onClick={this.fetchMore} width="150">
+                  {loading ? 'Loading...' : 'Load More'}
+                </Button>
+              )}
+            </Transactions>
+          )}
         </Wrapper>
       </>
     );
