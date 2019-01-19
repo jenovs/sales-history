@@ -25,6 +25,7 @@ body {
 
 body {
   cursor: default;
-  font-family: sans-serif;
+  font-family: Arial, sans-serif;
   font-size: 16px;
+  overflow-y: scroll;
 }
