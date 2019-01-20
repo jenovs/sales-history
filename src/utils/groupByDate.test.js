@@ -1,4 +1,4 @@
-import { groupByDate } from '.';
+import groupByDate from './groupByDate';
 
 const data = [
   { timestamp: 1544869890000, value: 'a' },

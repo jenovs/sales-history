@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 
 import Button from '../Button';
 import Filters from '../Filters';
@@ -8,25 +7,18 @@ import Transaction from '../Transaction';
 
 import { Day, Title, TitleText, Transactions, Wrapper } from './styled';
 
-import { groupByDate } from '../../utils';
-import { BASE_URL, filterConfig } from '../../config';
-
-const calcTotalSales = sales =>
-  (
-    sales.reduce((acc, d) => {
-      if (d.status === 'failed') return acc;
-      if (d.status === 'refunded') return acc - d.amount;
-      return acc + d.amount;
-    }, 0) / 100
-  ).toFixed(2);
+import {
+  calcTotalSales,
+  createFilterObj,
+  expandFilterConfig,
+  groupByDate,
+} from '../../utils';
+import { axiosFetch, filterConfig } from '../../config';
 
 class App extends Component {
   state = {
     data: [],
-    // eslint-disable-next-line
-    ...filterConfig.reduce((acc, f) => ((acc.filters[f.name] = true), acc), {
-      filters: {},
-    }),
+    ...expandFilterConfig(filterConfig),
     limit: 20,
     loading: -1,
   };
@@ -48,29 +40,10 @@ class App extends Component {
 
   fetchData = () => {
     const { filters, limit } = this.state;
-    const filterGroups = [...new Set(filterConfig.map(f => f.filterGroupName))];
+    const filter = createFilterObj(filters, filterConfig);
 
-    const filter = filterGroups.reduce((acc, f) => {
-      const names = filterConfig
-        .filter(n => n.filterGroupName === f)
-        .map(ft => ft.name);
-
-      acc[f] = names.reduce((a, n) => {
-        // eslint-disable-next-line
-        filters[n] && a.push(String(n));
-        return a;
-      }, []);
-      return acc;
-    }, {});
-
-    axios
-      .post(
-        BASE_URL,
-        { filter, limit },
-        {
-          headers: { 'Content-Type': 'application/json' },
-        }
-      )
+    axiosFetch
+      .post('/', { filter, limit })
       .then(res => {
         this.setState(({ loading }) => ({
           ...res.data,

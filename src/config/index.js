@@ -1,4 +1,4 @@
 import filterConfig from './filterConfig';
-import { BASE_URL } from './urls';
+import axiosFetch from './axiosConfig';
 
-export { BASE_URL, filterConfig };
+export { axiosFetch, filterConfig };
