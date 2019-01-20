@@ -38,6 +38,7 @@
     "jest": "^23.6.0",
     "jest-dom": "^3.0.0",
     "nodemon": "^1.12.1",
+    "react-test-renderer": "^16.7.0",
     "react-testing-library": "^5.4.4",
     "serverless": "^1.36.1"
   },
