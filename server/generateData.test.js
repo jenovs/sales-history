@@ -20,10 +20,10 @@ describe('server/generateData', () => {
       dateToday,
       getRandomNum: () => 1,
     });
-    expect(data.length).toBe(181);
+    expect(data.length).toBe(180);
 
     const { amount, currency, timestamp, paidBy, status } = data[
-      getRandomNum(0, 180)
+      getRandomNum(0, 179)
     ];
 
     expect(Number(amount)).not.toBeNaN();
@@ -38,9 +38,9 @@ describe('server/generateData', () => {
       dateToday,
       getRandomNum: () => 2,
     });
-    expect(data.length).toBe(362);
+    expect(data.length).toBe(360);
 
-    const rnd = getRandomNum(0, 360);
+    const rnd = getRandomNum(0, 359);
     const { amount, currency, timestamp, paidBy, status } = data[rnd];
 
     expect(Number(amount)).not.toBeNaN();

@@ -17,7 +17,7 @@ function generateData({
 
   let id = 0;
 
-  for (let date = dateToday; date >= nDaysAgo; date -= DAY_MS) {
+  for (let date = dateToday - DAY_MS; date >= nDaysAgo; date -= DAY_MS) {
     const salesToday = getRandomNum(3, 8);
 
     for (let j = 0; j < salesToday; j++) {
