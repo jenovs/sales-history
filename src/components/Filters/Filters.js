@@ -1,9 +1,20 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 import Button from '../Button';
 import { Group, H2, Overlay, Wrapper } from './styled';
 import Loading from '../Loading';
+
+const propTypes = {
+  filterConfig: PropTypes.array.isRequired,
+  filterState: PropTypes.object.isRequired,
+  loading: PropTypes.bool,
+  updateFilter: PropTypes.func.isRequired,
+};
+
+const defaultProps = {
+  loading: false,
+};
 
 // eslint-disable-next-line
 const Filters = ({ filterConfig, filterState, updateFilter, loading }) => {
@@ -38,5 +49,8 @@ const Filters = ({ filterConfig, filterState, updateFilter, loading }) => {
     </Wrapper>
   );
 };
+
+Filters.propTypes = propTypes;
+Filters.defaultProps = defaultProps;
 
 export default Filters;
