@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Filter should render buttons with different state 1`] = `
+<div
+  className="css-1bmxqqd"
+>
+  <div
+    className="css-wndajv"
+  >
+    <h2
+      className="css-1xblkvf"
+    >
+      Payment type
+    </h2>
+    <button
+      className="css-1jabc46"
+      onClick={[Function]}
+      type="button"
+    >
+      Card
+    </button>
+    <button
+      className="css-1lnopfn"
+      onClick={[Function]}
+      type="button"
+    >
+      Cash
+    </button>
+  </div>
+  <div
+    className="css-wndajv"
+  >
+    <h2
+      className="css-1xblkvf"
+    >
+      Status
+    </h2>
+    <button
+      className="css-1lnopfn"
+      onClick={[Function]}
+      type="button"
+    >
+      Successful
+    </button>
+  </div>
+</div>
+`;
