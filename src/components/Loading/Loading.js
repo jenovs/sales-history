@@ -1,5 +1,4 @@
-/* eslint-disable react/no-unused-state */
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
 const drawDots = ({ i }) => ({
@@ -7,40 +6,33 @@ const drawDots = ({ i }) => ({
   i: i + 1 > 3 ? 1 : i + 1,
 });
 
-class Loading extends React.Component {
-  static propTypes = {
-    timeout: PropTypes.number,
-  };
+const propTypes = {
+  timeout: PropTypes.number,
+};
 
-  static defaultProps = {
-    timeout: 175,
-  };
+const defaultProps = {
+  timeout: 175,
+};
 
-  state = {
-    text: '',
-    i: 1,
-  };
+const Loading = ({ timeout }) => {
+  const [text, setText] = useState('');
+  const [idx, setIdx] = useState(1);
 
-  componentDidMount() {
-    const { timeout } = this.props;
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      const { text, i } = drawDots({ i: idx });
 
-    const token = setInterval(() => {
-      this.setState(drawDots);
+      setText(text);
+      setIdx(i);
     }, timeout);
 
-    this.setState({ token });
-  }
+    return () => clearInterval(intervalId);
+  }, [idx, timeout]);
 
-  componentWillUnmount() {
-    const { token } = this.state;
-    clearInterval(token);
-  }
+  return <div style={{ fontFamily: 'monospace' }}>{text}</div>;
+};
 
-  render() {
-    const { text } = this.state;
-
-    return <div style={{ fontFamily: 'monospace' }}>{text}</div>;
-  }
-}
+Loading.propTypes = propTypes;
+Loading.defaultProps = defaultProps;
 
 export default Loading;

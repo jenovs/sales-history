@@ -1,12 +1,12 @@
 import React from 'react';
-import { render, cleanup } from '@testing-library/react';
+import { act, render, cleanup } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 
 import Loading from '.';
 
 jest.useFakeTimers();
 
-describe('Loading', () => {
+describe.only('Loading', () => {
   afterEach(cleanup);
   afterEach(jest.clearAllTimers);
 
@@ -16,13 +16,13 @@ describe('Loading', () => {
     const { getByText, queryByText } = render(<Loading timeout={timeout} />);
 
     expect(queryByText('•')).toBeNull();
-    jest.advanceTimersByTime(timeout);
+    act(() => jest.advanceTimersByTime(timeout));
     expect(getByText('•')).toBeVisible();
-    jest.advanceTimersByTime(timeout);
+    act(() => jest.advanceTimersByTime(timeout));
     expect(getByText('••')).toBeVisible();
-    jest.advanceTimersByTime(timeout);
+    act(() => jest.advanceTimersByTime(timeout));
     expect(getByText('•••')).toBeVisible();
-    jest.advanceTimersByTime(timeout);
+    act(() => jest.advanceTimersByTime(timeout));
     expect(getByText('•')).toBeVisible();
   });
 });
