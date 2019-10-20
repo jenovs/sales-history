@@ -11,7 +11,7 @@ See requirements in [requirements](/requirements) folder.
 
 The project is built using [React](https://github.com/facebook/react/) (with [Create React App](https://github.com/facebook/create-react-app) taking care of bundling, linting, live server, building etc.) and styled with [emotion](https://github.com/emotion-js/emotion).
 
-Testing is done with [Jest](https://github.com/facebook/jest) and [react-testing-library](https://github.com/kentcdodds/react-testing-library).
+Testing is done with [Jest](https://github.com/facebook/jest) and [react-testing-library](https://github.com/testing-library/react-testing-library).
 
 Code is formatted with [prettier](https://github.com/prettier/prettier) and follows [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript)
 

@@ -27,6 +27,8 @@
     "lambda:deploy": "bash ./my-scripts/lambda-deploy.sh"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^4.1.2",
+    "@testing-library/react": "^9.3.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-prettier": "^3.5.0",
     "eslint-plugin-babel": "^5.3.0",
@@ -36,10 +38,8 @@
     "eslint-plugin-react": "^7.12.4",
     "istanbul": "^0.4.5",
     "jest": "^23.6.0",
-    "jest-dom": "^3.0.0",
     "nodemon": "^1.12.1",
     "react-test-renderer": "^16.7.0",
-    "react-testing-library": "^5.4.4",
     "serverless": "^1.36.1"
   },
   "homepage": "/sales-history/",
