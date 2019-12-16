@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/sales-history/static/css/main.529cb7ba.chunk.css",
+    "main.js": "/sales-history/static/js/main.bf5935fc.chunk.js",
+    "main.js.map": "/sales-history/static/js/main.bf5935fc.chunk.js.map",
+    "runtime-main.js": "/sales-history/static/js/runtime-main.1ef08ab3.js",
+    "runtime-main.js.map": "/sales-history/static/js/runtime-main.1ef08ab3.js.map",
+    "static/js/2.f00fb417.chunk.js": "/sales-history/static/js/2.f00fb417.chunk.js",
+    "static/js/2.f00fb417.chunk.js.map": "/sales-history/static/js/2.f00fb417.chunk.js.map",
+    "index.html": "/sales-history/index.html",
+    "precache-manifest.36d5457160459e574e169f8f69cfc266.js": "/sales-history/precache-manifest.36d5457160459e574e169f8f69cfc266.js",
+    "service-worker.js": "/sales-history/service-worker.js",
+    "static/css/main.529cb7ba.chunk.css.map": "/sales-history/static/css/main.529cb7ba.chunk.css.map",
+    "static/media/credit-card.58e347fe.svg": "/sales-history/static/media/credit-card.58e347fe.svg",
+    "static/media/money.d7285f3e.svg": "/sales-history/static/media/money.d7285f3e.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.1ef08ab3.js",
+    "static/js/2.f00fb417.chunk.js",
+    "static/css/main.529cb7ba.chunk.css",
+    "static/js/main.bf5935fc.chunk.js"
+  ]
+}
